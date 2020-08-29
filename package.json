@@ -1,0 +1,15 @@
+{
+  "name": "eleventy-load-html",
+  "version": "0.0.1",
+  "description": "HTML loader for Eleventy using eleventy-load",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "https://github.com/gregives/eleventy-load-html",
+  "author": "Greg Ives",
+  "license": "MIT",
+  "dependencies": {
+    "jsdom": "^16.4.0"
+  }
+}
