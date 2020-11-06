@@ -1,4 +1,5 @@
 const { JSDOM } = require("jsdom");
+const { minify } = require("html-minifier-terser");
 
 const ATTRIBUTES = [
   {
@@ -79,6 +80,19 @@ const ATTRIBUTES = [
   },
 ];
 
+const MINIMIZE = {
+  caseSensitive: true,
+  collapseWhitespace: true,
+  conservativeCollapse: true,
+  keepClosingSlash: true,
+  minifyCSS: true,
+  minifyJS: true,
+  removeComments: true,
+  removeRedundantAttributes: true,
+  removeScriptTypeAttributes: true,
+  removeStyleLinkTypeAttributes: true,
+};
+
 // Regex to match sources in srcset
 const SRCSET = /(?:^|,)\s*(\S+)/g;
 
@@ -119,5 +133,13 @@ module.exports = async function (content, options) {
     }
   }
 
-  return dom.serialize();
+  // Serialize DOM
+  let html = dom.serialize();
+
+  // Option to minimize HTML
+  if (options.minimize) {
+    html = minify(html, { ...MINIMIZE, ...options.minimize });
+  }
+
+  return html;
 };
