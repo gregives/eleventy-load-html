@@ -116,20 +116,28 @@ async function getDependencies(element, attribute) {
   element.setAttribute(attribute, source);
 }
 
-module.exports = async function (content, options) {
+module.exports = async function (content, _options) {
+  const options = {
+    attributes: true,
+    minimize: false,
+    ..._options,
+  };
+
   // Build DOM of the content
   const dom = new JSDOM(content);
   const { document } = dom.window;
 
-  // Find all dependencies from attributes
-  for (const { tag, attribute } of ATTRIBUTES) {
-    const elements = [...document.querySelectorAll(tag)];
+  if (options.attributes) {
+    // Find all dependencies from attributes
+    for (const { tag, attribute } of ATTRIBUTES) {
+      const elements = [...document.querySelectorAll(tag)];
 
-    for (const element of elements) {
-      if (!element.hasAttribute(attribute)) continue;
+      for (const element of elements) {
+        if (!element.hasAttribute(attribute)) continue;
 
-      // Get dependencies from element
-      await getDependencies.bind(this)(element, attribute);
+        // Get dependencies from element
+        await getDependencies.bind(this)(element, attribute);
+      }
     }
   }
 
