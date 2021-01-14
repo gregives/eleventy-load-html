@@ -1,7 +1,7 @@
 {
   "name": "eleventy-load-html",
   "version": "0.0.1",
-  "description": "HTML loader for Eleventy using eleventy-load",
+  "description": "Find dependencies in and minify HTML using eleventy-load",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
