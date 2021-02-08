@@ -116,7 +116,7 @@ async function getDependencies(element, attribute) {
   element.setAttribute(attribute, source);
 }
 
-module.exports = async function (content, _options) {
+module.exports = async function (content, _options = {}) {
   const options = {
     attributes: true,
     minimize: false,
