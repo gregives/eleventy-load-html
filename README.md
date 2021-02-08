@@ -43,7 +43,7 @@ module.exports = function (eleventyConfig) {
 
 ### `attributes`
 
-Type: `Boolean` Default: `true`.
+Type: `Boolean` Default: `true`
 
 Find dependencies from HTML attributes which will be processed by eleventy-load (if a loader is configured to process the dependency).
 
