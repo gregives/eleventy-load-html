@@ -4,10 +4,17 @@
   "description": "Find dependencies in and minify HTML using eleventy-load",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "release": "np"
   },
-  "repository": "https://github.com/gregives/eleventy-load-html",
+  "repository": "gregives/eleventy-load-html",
   "author": "Greg Ives",
+  "keywords": [
+    "eleventy",
+    "eleventy-load",
+    "html",
+    "dependencies",
+    "minify"
+  ],
   "license": "MIT",
   "dependencies": {
     "html-minifier-terser": "^5.1.1",
@@ -19,6 +26,7 @@
     "eslint-plugin-prettier": "^3.3.0",
     "husky": "^4.3.6",
     "lint-staged": "^10.5.3",
+    "np": "*",
     "prettier": "^2.2.1"
   },
   "husky": {
