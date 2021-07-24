@@ -15,7 +15,9 @@ Firstly, you'll need to install [eleventy-load](https://github.com/gregives/elev
 npm install --save-dev eleventy-load eleventy-load-html
 ```
 
-Then you can set up eleventy-load-html using a rule in your eleventy-load options. Note that eleventy-load tests the **input path**, so we want to apply eleventy-load-html to both HTML and Markdown templates.
+Then you can set up eleventy-load-html using a rule in your eleventy-load options. Note that eleventy-load tests the **input path**, so we want to apply eleventy-load-html to both HTML and Markdown templates. Within a template the dependency source path should be relative to the input path: 
+
+e.g. for dependency `<inputPath>/sass/styles.scss` use `<link rel="stylesheet" href="sass/styles.scss" />`
 
 ```js
 module.exports = function (eleventyConfig) {
